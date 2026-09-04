@@ -56,6 +56,12 @@ export default function Home() {
   useEffect(() => { localStorage.setItem("sn-cart", JSON.stringify(cart)); }, [cart]);
   const store = useMemo(() => getStoreConfig(), []);
   const filteredModels = useMemo(() => filterDeviceModels(assistForm.deviceType, assistForm.brand, modelSearch), [assistForm.deviceType, assistForm.brand, modelSearch]);
+  const [scrolled, setScrolled] = useState(false);
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
   const [cartOpen, setCartOpen] = useState(false);
   const [mobileMenu, setMobileMenu] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState<CatalogProduct | null>(null);
