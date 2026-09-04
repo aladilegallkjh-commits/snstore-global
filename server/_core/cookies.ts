@@ -1,4 +1,3 @@
-import type { CookieOptions } from "express";
 import type { IncomingMessage } from "http";
 
 const LOCAL_HOSTS = new Set(["localhost", "127.0.0.1", "::1"]);
@@ -24,7 +23,7 @@ function isSecureRequest(req: IncomingMessage & { protocol?: string }) {
 
 export function getSessionCookieOptions(
   req: IncomingMessage & { protocol?: string }
-): Pick<CookieOptions, "httpOnly" | "path" | "sameSite" | "secure"> {
+): { httpOnly: boolean; path: string; sameSite: "none" | "lax" | "strict" | boolean; secure: boolean } {
   // const hostname = req.hostname;
   // const shouldSetDomain =
   //   hostname &&
