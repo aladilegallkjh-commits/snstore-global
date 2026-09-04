@@ -1,1 +1,2 @@
-import app from "../server/_core/index";`nexport default app;
+import app from "../server/_core/index";
+export default app;
