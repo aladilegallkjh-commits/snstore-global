@@ -56,15 +56,12 @@ if (process.env.NODE_ENV === "development") {
       });
     });
   });
-} else {
+} else if (!process.env.VERCEL) {
   serveStatic(app);
-  // In production (e.g. Render, Heroku) we might need to listen, but in Vercel we export the app
-  if (!process.env.VERCEL) {
-    const port = process.env.PORT || 3000;
-    server.listen(port, () => {
-      console.log(`Server running on port ${port}`);
-    });
-  }
+  const port = process.env.PORT || 3000;
+  server.listen(port, () => {
+    console.log(`Server running on port ${port}`);
+  });
 }
 
 // Export for Vercel serverless
