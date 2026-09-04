@@ -1,0 +1,10 @@
+{
+  "name": "SN Store Global",
+  "short_name": "SN Store",
+  "lang": "pt-BR",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#090a0c",
+  "theme_color": "#090a0c",
+  "description": "iPhones, Apple e tecnologia selecionada."
+}
