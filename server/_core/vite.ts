@@ -5,12 +5,13 @@ import { type Server } from "http";
 import { nanoid } from "nanoid";
 import path from "path";
 import { fileURLToPath } from "url";
-import { createServer as createViteServer } from "vite";
-import viteConfig from "../../vite.config";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 export async function setupVite(app: Application, server: Server) {
+  const { createServer: createViteServer } = await import("vite");
+  const viteConfig = (await import("../../vite.config")).default;
+
   const serverOptions = {
     middlewareMode: true,
     hmr: { server },
@@ -52,13 +53,9 @@ export async function setupVite(app: Application, server: Server) {
 }
 
 export function serveStatic(app: Application) {
-  // In production (Vercel), the dist/index.js is in dist/ and public assets are in dist/public/
-  // We need to go up from dist/ to the project root, then back to dist/public
-  const distPath = path.resolve(
-    __dirname,
-    "..",
-    "public"
-  );
+  const distPath = fs.existsSync(path.resolve(process.cwd(), "dist", "public"))
+    ? path.resolve(process.cwd(), "dist", "public")
+    : path.resolve(process.cwd(), "public");
 
   if (!fs.existsSync(distPath)) {
     console.error(
