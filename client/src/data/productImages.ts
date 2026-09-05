@@ -3,8 +3,8 @@ import type { CatalogProduct } from "./catalog";
 const appleCDN = {
   iphonePro: "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-15-pro-finish-select-202309-6-1inch-bluetitanium?wid=512&hei=512&fmt=png-alpha",
   iphone: "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-15-finish-select-202309-6-1inch-black?wid=512&hei=512&fmt=png-alpha",
-  ipad: "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/ipad-air-finish-select-gallery-202405-11-blue?wid=512&hei=512&fmt=png-alpha",
-  watch: "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/watch-se-digitalmat-gallery-202309_GEO_BR?wid=512&hei=512&fmt=png-alpha",
+  ipad: "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/ipad-10th-gen-finish-select-202212-blue?wid=512&hei=512&fmt=png-alpha",
+  watch: "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/watch-card-40-se-202409?wid=512&hei=512&fmt=png-alpha",
   airpods: "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MME73?wid=512&hei=512&fmt=png-alpha",
   airpodsPro: "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MTJV3?wid=512&hei=512&fmt=png-alpha",
   macbook: "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/macbook-air-midnight-select-20220606?wid=512&hei=512&fmt=png-alpha",

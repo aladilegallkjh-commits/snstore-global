@@ -73,7 +73,7 @@ button:active { transform: scale(.98); }
 @media(max-width:760px){.reference-hero-visual{background-size:220% auto;background-position:100% 53%}.reference-hero-art:after{background:linear-gradient(90deg,rgba(3,8,15,.98),rgba(3,8,15,.14) 38%,transparent 70%),linear-gradient(180deg,transparent 62%,rgba(2,7,14,.86))}}
 
 /* Composição final enviada pelo cliente */
-.reference-hero-visual{background-image:url('https://files.manuscdn.com/user_upload_by_module/session_file/310519663916947987/BMhbIHXkFUYgrgfL.png');background-size:contain;background-position:center right;background-repeat:no-repeat;background-color:transparent}
+.reference-hero-visual{background-image:url('/hero_apple_devices.jpg');background-size:contain;background-position:center right;background-repeat:no-repeat;background-color:transparent}
 @media(max-width:760px){.reference-hero-visual{background-size:112% auto;background-position:center 46%}}
 
 /* Enquadramento final da foto enviada: composição inteira em mobile */
