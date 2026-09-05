@@ -134,46 +134,36 @@ export default function Home() {
       <nav className="desktop-nav">{categories.slice(0, 7).map((category) => <a key={category} href="#catalogo" onClick={() => setActiveCategory(category)}>{category}</a>)}<a href="#assistencia">Assistência móvel</a></nav><div className="header-actions"><button className="header-search" onClick={() => document.getElementById("catalog-search")?.focus()} aria-label="Buscar"><Search size={18} /></button><WhatsAppLink message={store.defaultWhatsappMessage} className="header-whatsapp"><MessageCircle size={18} /><span>WhatsApp</span></WhatsAppLink><button className="cart-trigger" onClick={() => setCartOpen(true)} aria-label="Abrir carrinho"><ShoppingBag size={19} />{cartCount > 0 && <span>{cartCount}</span>}</button></div></header>
 
     <main>
-      <section className="hero">
-        <div className="hero-cosmic-bg" aria-hidden="true" />
-        <div className="hero-grid">
-          <div className="hero-copy">
-            <div className="eyebrow accent">
-              <span className="hud-tag-dot" />
-              SN STORE GLOBAL <span className="eyebrow-line" />
-            </div>
-            <div className="hero-hud-frame">
-              <span className="hud-bracket hud-bracket-tl" />
-              <span className="hud-bracket hud-bracket-tr" />
-              <span className="hud-bracket hud-bracket-bl" />
-              <span className="hud-bracket hud-bracket-br" />
-              <span className="hud-scanner-line" />
-              <span className="hud-tech-notch top" />
-              <span className="hud-tech-notch bottom" />
-              <h1>
-                Tecnologia<br />
-                que<br />
-                acompanha<br />
-                o seu<br />
-                <span className="hud-glow-text">próximo nível.</span>
-              </h1>
-            </div>
-            <p>Apple, smartphones e acessórios selecionados para quem não abre mão de qualidade, confiança e procedência.</p>
-            <div className="hero-note"><span>SELEÇÃO PREMIUM</span><span>ATENDIMENTO LOCAL</span><span>ENVIO NACIONAL</span></div>
-            <div className="hero-actions">
-              <Button size="lg" className="hero-btn-primary" onClick={() => { setActiveCategory("iPhone"); document.getElementById("catalogo")?.scrollIntoView({ behavior: "smooth" }); }}>Ver iPhones <ArrowRight size={17} /></Button>
-              <a href="#catalogo" className="text-link hero-btn-secondary">Explorar produtos <ArrowRight size={16} /></a>
-            </div>
-            <div className="hero-checks">
-              <span><Check size={14} /> Produtos selecionados</span>
-              <span><Check size={14} /> Atendimento especializado</span>
-              <span><Check size={14} /> Compra facilitada pelo WhatsApp</span>
-            </div>
+      <section className="hero-banner-section">
+        <h1 className="sr-only">Tecnologia que acompanha o seu próximo nível — SN Store Global</h1>
+        <div className="hero-banner-wrap">
+          <div className="hero-banner-ambient-glow" aria-hidden="true" />
+          <div className="hero-banner-stage">
+            <img 
+              src="/hero_banner_apple_hd.jpg" 
+              alt="Tecnologia que acompanha o seu próximo nível - Apple, smartphones e acessórios na SN Store Global" 
+              className="hero-banner-img"
+              loading="eager"
+            />
           </div>
-          <div className="hero-art reference-hero-art">
-            <img className="reference-hero-image" src="/hero_apple_cyber.jpg" alt="Ecossistema Apple SN Store Global" />
-            <div className="reference-hero-light" />
-            <div className="reference-hud-glow" />
+          <div className="hero-banner-bar">
+            <div className="hero-banner-actions">
+              <Button 
+                size="lg" 
+                className="hero-banner-btn-primary" 
+                onClick={() => { setActiveCategory("iPhone"); document.getElementById("catalogo")?.scrollIntoView({ behavior: "smooth" }); }}
+              >
+                Ver iPhones <ArrowRight size={17} />
+              </Button>
+              <a href="#catalogo" className="hero-banner-btn-secondary">
+                Explorar catálogo <ArrowRight size={16} />
+              </a>
+            </div>
+            <div className="hero-banner-badges">
+              <span>✦ Pronta entrega</span>
+              <span>✦ Garantia oficial</span>
+              <span>✦ Atendimento WhatsApp</span>
+            </div>
           </div>
         </div>
       </section><section className="hero-benefit-panel"><div><ShieldCheck size={28} /><strong>100%</strong><span>Produtos originais<br />e lacrados</span></div><div><Check size={28} /><strong>1 ANO</strong><span>Garantia Apple<br />e fabricante</span></div><div><ShoppingBag size={28} /><strong>ENVIO</strong><span>Para todo<br />o Brasil</span></div><div><MessageCircle size={28} /><strong>COMPRA</strong><span>Segura e dados<br />protegidos</span></div></section><section className="character-section" id="personagem">
