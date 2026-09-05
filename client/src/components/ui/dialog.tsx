@@ -19,9 +19,16 @@ const DialogCompositionContext = React.createContext<{
 export const useDialogComposition = () =>
   React.useContext(DialogCompositionContext);
 
+const DialogRootPrimitive = DialogPrimitive.Root as any;
+const DialogTriggerPrimitive = DialogPrimitive.Trigger as any;
+const DialogPortalPrimitive = DialogPrimitive.Portal as any;
+const DialogClosePrimitive = DialogPrimitive.Close as any;
+const DialogOverlayPrimitive = DialogPrimitive.Overlay as any;
+const DialogContentPrimitive = DialogPrimitive.Content as any;
+
 function Dialog({
   ...props
-}: React.ComponentProps<typeof DialogPrimitive.Root>) {
+}: any) {
   const composingRef = React.useRef(false);
   const justEndedRef = React.useRef(false);
   const endTimerRef = React.useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -48,35 +55,35 @@ function Dialog({
 
   return (
     <DialogCompositionContext.Provider value={contextValue}>
-      <DialogPrimitive.Root data-slot="dialog" {...props} />
+      <DialogRootPrimitive data-slot="dialog" {...props} />
     </DialogCompositionContext.Provider>
   );
 }
 
 function DialogTrigger({
   ...props
-}: React.ComponentProps<typeof DialogPrimitive.Trigger>) {
-  return <DialogPrimitive.Trigger data-slot="dialog-trigger" {...props} />;
+}: any) {
+  return <DialogTriggerPrimitive data-slot="dialog-trigger" {...props} />;
 }
 
 function DialogPortal({
   ...props
-}: React.ComponentProps<typeof DialogPrimitive.Portal>) {
-  return <DialogPrimitive.Portal data-slot="dialog-portal" {...props} />;
+}: any) {
+  return <DialogPortalPrimitive data-slot="dialog-portal" {...props} />;
 }
 
 function DialogClose({
   ...props
-}: React.ComponentProps<typeof DialogPrimitive.Close>) {
-  return <DialogPrimitive.Close data-slot="dialog-close" {...props} />;
+}: any) {
+  return <DialogClosePrimitive data-slot="dialog-close" {...props} />;
 }
 
 function DialogOverlay({
   className,
   ...props
-}: React.ComponentProps<typeof DialogPrimitive.Overlay>) {
+}: any) {
   return (
-    <DialogPrimitive.Overlay
+    <DialogOverlayPrimitive
       data-slot="dialog-overlay"
       className={cn(
         "data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 fixed inset-0 z-50 bg-black/50",
@@ -95,9 +102,7 @@ function DialogContent({
   showCloseButton = true,
   onEscapeKeyDown,
   ...props
-}: React.ComponentProps<typeof DialogPrimitive.Content> & {
-  showCloseButton?: boolean;
-}) {
+}: any) {
   const { isComposing } = useDialogComposition();
 
   const handleEscapeKeyDown = React.useCallback(
@@ -121,7 +126,7 @@ function DialogContent({
   return (
     <DialogPortal data-slot="dialog-portal">
       <DialogOverlay />
-      <DialogPrimitive.Content
+      <DialogContentPrimitive
         data-slot="dialog-content"
         aria-describedby={undefined}
         className={cn(
@@ -133,15 +138,15 @@ function DialogContent({
       >
         {children}
         {showCloseButton && (
-          <DialogPrimitive.Close
+          <DialogClosePrimitive
             data-slot="dialog-close"
             className="ring-offset-background focus:ring-ring data-[state=open]:bg-accent data-[state=open]:text-muted-foreground absolute top-4 right-4 rounded-xs opacity-70 transition-opacity hover:opacity-100 focus:ring-2 focus:ring-offset-2 focus:outline-hidden disabled:pointer-events-none [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4"
           >
             <XIcon />
             <span className="sr-only">Close</span>
-          </DialogPrimitive.Close>
+          </DialogClosePrimitive>
         )}
-      </DialogPrimitive.Content>
+      </DialogContentPrimitive>
     </DialogPortal>
   );
 }

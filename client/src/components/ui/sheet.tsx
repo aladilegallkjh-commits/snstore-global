@@ -6,34 +6,41 @@ import { XIcon } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 
-function Sheet({ ...props }: React.ComponentProps<typeof SheetPrimitive.Root>) {
-  return <SheetPrimitive.Root data-slot="sheet" {...props} />;
+const SheetRootPrimitive = SheetPrimitive.Root as any;
+const SheetTriggerPrimitive = SheetPrimitive.Trigger as any;
+const SheetClosePrimitive = SheetPrimitive.Close as any;
+const SheetPortalPrimitive = SheetPrimitive.Portal as any;
+const SheetOverlayPrimitive = SheetPrimitive.Overlay as any;
+const SheetContentPrimitive = SheetPrimitive.Content as any;
+
+function Sheet({ ...props }: any) {
+  return <SheetRootPrimitive data-slot="sheet" {...props} />;
 }
 
 function SheetTrigger({
   ...props
-}: React.ComponentProps<typeof SheetPrimitive.Trigger>) {
-  return <SheetPrimitive.Trigger data-slot="sheet-trigger" {...props} />;
+}: any) {
+  return <SheetTriggerPrimitive data-slot="sheet-trigger" {...props} />;
 }
 
 function SheetClose({
   ...props
-}: React.ComponentProps<typeof SheetPrimitive.Close>) {
-  return <SheetPrimitive.Close data-slot="sheet-close" {...props} />;
+}: any) {
+  return <SheetClosePrimitive data-slot="sheet-close" {...props} />;
 }
 
 function SheetPortal({
   ...props
-}: React.ComponentProps<typeof SheetPrimitive.Portal>) {
-  return <SheetPrimitive.Portal data-slot="sheet-portal" {...props} />;
+}: any) {
+  return <SheetPortalPrimitive data-slot="sheet-portal" {...props} />;
 }
 
 function SheetOverlay({
   className,
   ...props
-}: React.ComponentProps<typeof SheetPrimitive.Overlay>) {
+}: any) {
   return (
-    <SheetPrimitive.Overlay
+    <SheetOverlayPrimitive
       data-slot="sheet-overlay"
       className={cn(
         "data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 fixed inset-0 z-50 bg-black/50",
@@ -49,13 +56,11 @@ function SheetContent({
   children,
   side = "right",
   ...props
-}: React.ComponentProps<typeof SheetPrimitive.Content> & {
-  side?: "top" | "right" | "bottom" | "left";
-}) {
+}: any) {
   return (
     <SheetPortal>
       <SheetOverlay />
-      <SheetPrimitive.Content
+      <SheetContentPrimitive
         data-slot="sheet-content"
         aria-describedby={undefined}
         className={cn(
@@ -73,11 +78,11 @@ function SheetContent({
         {...props}
       >
         {children}
-        <SheetPrimitive.Close className="ring-offset-background focus:ring-ring data-[state=open]:bg-secondary absolute top-4 right-4 rounded-xs opacity-70 transition-opacity hover:opacity-100 focus:ring-2 focus:ring-offset-2 focus:outline-hidden disabled:pointer-events-none">
+        <SheetClosePrimitive className="ring-offset-background focus:ring-ring data-[state=open]:bg-secondary absolute top-4 right-4 rounded-xs opacity-70 transition-opacity hover:opacity-100 focus:ring-2 focus:ring-offset-2 focus:outline-hidden disabled:pointer-events-none">
           <XIcon className="size-4" />
           <span className="sr-only">Close</span>
-        </SheetPrimitive.Close>
-      </SheetPrimitive.Content>
+        </SheetClosePrimitive>
+      </SheetContentPrimitive>
     </SheetPortal>
   );
 }
