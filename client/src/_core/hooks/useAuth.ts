@@ -44,6 +44,7 @@ export function useAuth(options?: UseAuthOptions) {
       // backend cookie is cleared by the logout mutation.
       try {
         sessionStorage.removeItem("auth-cookie");
+        localStorage.removeItem("app-user-info");
       } catch {}
       utils.auth.me.setData(undefined, null);
       await utils.auth.me.invalidate();
@@ -51,15 +52,21 @@ export function useAuth(options?: UseAuthOptions) {
   }, [logoutMutation, utils]);
 
   const state = useMemo(() => {
-    localStorage.setItem(
-      "app-user-info",
-      JSON.stringify(meQuery.data)
-    );
+    let localUser = null;
+    try {
+      localUser = JSON.parse(localStorage.getItem("app-user-info") || "null");
+    } catch {}
+
+    const currentUser = meQuery.data ?? localUser ?? null;
+    if (meQuery.data) {
+      localStorage.setItem("app-user-info", JSON.stringify(meQuery.data));
+    }
+
     return {
-      user: meQuery.data ?? null,
+      user: currentUser,
       loading: meQuery.isLoading || logoutMutation.isPending,
       error: meQuery.error ?? logoutMutation.error ?? null,
-      isAuthenticated: Boolean(meQuery.data),
+      isAuthenticated: Boolean(currentUser),
     };
   }, [
     meQuery.data,

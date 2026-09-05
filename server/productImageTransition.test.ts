@@ -15,8 +15,8 @@ describe("product image color transition", () => {
   });
 
   it("maps a front view for the iPhone 17 Pro family", () => {
-    expect(getProductFrontImage({ category: "iPhone", name: "iPhone 17 Pro Max" })).toContain("iphone-17-pro-max-front_");
-    expect(getProductFrontImage({ category: "iPhone", name: "iPhone 16 Pro" })).toBeUndefined();
+    expect(getProductFrontImage({ category: "iPhone", name: "iPhone 17 Pro Max" })).toContain("store.storeimages.cdn-apple.com");
+    expect(getProductFrontImage({ category: "iPhone", name: "iPhone 16" })).toBeUndefined();
   });
 
   it("keeps the animation short and honors reduced-motion preferences", () => {

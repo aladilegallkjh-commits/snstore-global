@@ -31,8 +31,7 @@ export async function setupVite(app: Application, server: Server) {
 
     try {
       const clientTemplate = path.resolve(
-        __dirname,
-        "../..",
+        process.cwd(),
         "client",
         "index.html"
       );

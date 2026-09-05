@@ -47,7 +47,10 @@ app.use(
 );
 
 // development mode uses Vite, production mode uses static files
-if (process.env.NODE_ENV === "development") {
+const isBundled = import.meta.url.includes("/dist/") || import.meta.url.includes("\\dist\\");
+const isDev = process.env.NODE_ENV === "development" || (!process.env.NODE_ENV && !isBundled);
+
+if (isDev && !process.env.VERCEL) {
   setupVite(app, server).then(() => {
     const preferredPort = parseInt(process.env.PORT || "3000");
     findAvailablePort(preferredPort).then((port) => {

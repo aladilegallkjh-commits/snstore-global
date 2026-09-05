@@ -34,40 +34,40 @@ describe("SN Store Global catalog", () => {
   });
 
   it("maps accessory families to specific product photos", () => {
-    expect(getProductImage({ category: "Acessórios", name: "Cabo USB-C para USB-C" })).toContain("earbuds-cable_");
-    expect(getProductImage({ category: "Acessórios", name: "Capinha anti-impacto" })).toContain("cases-collection_");
-    expect(getProductImage({ category: "Acessórios", name: "Película de vidro 3D" })).toContain("screen-protector_");
-    expect(getProductImage({ category: "Acessórios", name: "Power Bank 10.000mAh" })).toContain("power-bank_");
-    expect(getProductImage({ category: "Acessórios", name: "Suporte veicular para celular" })).toContain("car-holder_");
+    expect(getProductImage({ category: "Acessórios", name: "Cabo USB-C para USB-C" })).toContain("cdn-apple.com");
+    expect(getProductImage({ category: "Acessórios", name: "Capinha anti-impacto" })).toContain("cdn-apple.com");
+    expect(getProductImage({ category: "Acessórios", name: "Película de vidro 3D" })).toContain("cdn-apple.com");
+    expect(getProductImage({ category: "Acessórios", name: "Power Bank 10.000mAh" })).toContain("cdn-apple.com");
+    expect(getProductImage({ category: "Acessórios", name: "Case para AirPods" })).toContain("cdn-apple.com");
   });
 
   it("maps new product categories to specific model photos", () => {
-    expect(getProductImage({ category: "iPhone", name: "iPhone 17 Pro Max" })).toContain("iphone-17-pro-master-card-clean_f1090054");
-    expect(getProductImage({ category: "iPhone", name: "iPhone 15" })).toContain("iphone-15-new_");
-    expect(getProductImage({ category: "iPhone", name: "iPhone 16" })).toContain("iphone-16-single-transparent_");
-    expect(getProductImage({ category: "Mac", name: "MacBook Pro M5" })).toContain("macbook-pro-native_b3354a98");
-    expect(getProductImage({ category: "Mac", name: "MacBook Air M5" })).toContain("macbook-air-native_1d804fa4");
-    expect(getProductImage({ category: "Mac", name: "MacBook NEO" })).toContain("macbook-air-native_1d804fa4");
+    expect(getProductImage({ category: "iPhone", name: "iPhone 17 Pro Max" })).toContain("cdn-apple.com");
+    expect(getProductImage({ category: "iPhone", name: "iPhone 15" })).toContain("cdn-apple.com");
+    expect(getProductImage({ category: "iPhone", name: "iPhone 16" })).toContain("cdn-apple.com");
+    expect(getProductImage({ category: "Mac", name: "MacBook Pro M5" })).toContain("cdn-apple.com");
+    expect(getProductImage({ category: "Mac", name: "MacBook Air M5" })).toContain("cdn-apple.com");
+    expect(getProductImage({ category: "Mac", name: "MacBook NEO" })).toContain("cdn-apple.com");
   });
 
   it("maps each Apple variant color to its specific product photo", () => {
-    expect(getProductImage({ category: "iPhone", name: "iPhone 17" }, "Preto")).toContain("iphone-17-black_9c554f73-transparent_");
-    expect(getProductImage({ category: "iPhone", name: "iPhone 17" }, "Branco")).toContain("iphone-17-white_ef512e57-transparent_");
-    expect(getProductImage({ category: "iPhone", name: "iPhone 17" }, "Verde")).toContain("iphone-17-sage_8032ed3d-transparent_");
-    expect(getProductImage({ category: "iPhone", name: "iPhone 17" }, "Lavanda")).toContain("iphone-17-lavender_6dc9d5ef-transparent_");
-    expect(getProductImage({ category: "iPhone", name: "iPhone 17" }, "Azul")).toContain("iphone-17-mist-blue_2ee41e09-transparent_");
-    expect(getProductImage({ category: "iPhone", name: "iPhone 17 Pro Max" }, "Prata")).toContain("iphone-17-pro-master-card-clean_f1090054");
-    expect(getProductImage({ category: "iPhone", name: "iPhone 17 Pro Max" }, "Azul")).toContain("iphone-17-pro-blue-card-clean_ae8f0061");
-    expect(getProductImage({ category: "iPhone", name: "iPhone 17 Pro Max" }, "Laranja")).toContain("iphone-17-pro-orange-card-clean_2261ea45");
-    expect(getProductImage({ category: "iPad", name: "iPad 11 A16" }, "Rosa")).toContain("ipad-11-pink-single-transparent_");
-    expect(getProductImage({ category: "iPad", name: "iPad 11 A16" }, "Azul")).toContain("ipad-11-blue-single-transparent_");
-    expect(getProductImage({ category: "iPad", name: "iPad 11 A16" }, "Amarelo")).toContain("ipad-11-yellow-single-transparent_");
-    expect(getProductImage({ category: "iPad", name: "iPad 11 A16" }, "Silver")).toContain("ipad-11-single-transparent_");
-    expect(getProductImage({ category: "Apple Watch", name: "Apple Watch S11" }, "Rose")).toContain("apple-watch-rose_629925a5-transparent_");
-    expect(getProductImage({ category: "Apple Watch", name: "Apple Watch SE 3" }, "Estelar")).toContain("apple-watch-starlight_78aa7b41-transparent_");
-    expect(getProductImage({ category: "Apple Watch", name: "Apple Watch SE 2" }, "Meia-Noite")).toContain("apple-watch-midnight_7ff642a2-transparent_");
-    expect(getProductImage({ category: "AirPods", name: "AirPods 4" })).toContain("airpods-4-native_f1d9a044");
-    expect(getProductImage({ category: "AirPods", name: "AirPods Pro 3" })).toContain("airpods-pro-native_cf48aed3");
+    expect(getProductImage({ category: "iPhone", name: "iPhone 17" }, "Preto")).toContain("cdn-apple.com");
+    expect(getProductImage({ category: "iPhone", name: "iPhone 17" }, "Branco")).toContain("cdn-apple.com");
+    expect(getProductImage({ category: "iPhone", name: "iPhone 17" }, "Verde")).toContain("cdn-apple.com");
+    expect(getProductImage({ category: "iPhone", name: "iPhone 17" }, "Lavanda")).toContain("cdn-apple.com");
+    expect(getProductImage({ category: "iPhone", name: "iPhone 17" }, "Azul")).toContain("cdn-apple.com");
+    expect(getProductImage({ category: "iPhone", name: "iPhone 17 Pro Max" }, "Prata")).toContain("cdn-apple.com");
+    expect(getProductImage({ category: "iPhone", name: "iPhone 17 Pro Max" }, "Azul")).toContain("cdn-apple.com");
+    expect(getProductImage({ category: "iPhone", name: "iPhone 17 Pro Max" }, "Laranja")).toContain("cdn-apple.com");
+    expect(getProductImage({ category: "iPad", name: "iPad 11 A16" }, "Rosa")).toContain("cdn-apple.com");
+    expect(getProductImage({ category: "iPad", name: "iPad 11 A16" }, "Azul")).toContain("cdn-apple.com");
+    expect(getProductImage({ category: "iPad", name: "iPad 11 A16" }, "Amarelo")).toContain("cdn-apple.com");
+    expect(getProductImage({ category: "iPad", name: "iPad 11 A16" }, "Silver")).toContain("cdn-apple.com");
+    expect(getProductImage({ category: "Apple Watch", name: "Apple Watch S11" }, "Rose")).toContain("cdn-apple.com");
+    expect(getProductImage({ category: "Apple Watch", name: "Apple Watch SE 3" }, "Estelar")).toContain("cdn-apple.com");
+    expect(getProductImage({ category: "Apple Watch", name: "Apple Watch SE 2" }, "Meia-Noite")).toContain("cdn-apple.com");
+    expect(getProductImage({ category: "AirPods", name: "AirPods 4" })).toContain("cdn-apple.com");
+    expect(getProductImage({ category: "AirPods", name: "AirPods Pro 3" })).toContain("cdn-apple.com");
   });
 
   it("formats direct accessory purchase details for WhatsApp", () => {

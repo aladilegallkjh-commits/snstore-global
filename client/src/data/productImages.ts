@@ -21,10 +21,13 @@ export function getProductFrontImage(product: Pick<CatalogProduct, "category" | 
 export function getProductImage(product: Pick<CatalogProduct, "category" | "name"> & { color?: string }, color?: string) {
   if (product.category === "Acessórios") {
     const name = product.name.toLocaleLowerCase("pt-BR");
+    if (name.includes("airpods") || name.includes("fone") || name.includes("áudio")) return appleCDN.airpods;
     if (name.includes("cabo")) return appleCDN.cable;
-    if (name.includes("carregador") || name.includes("wireless") || name.includes("magsafe")) return appleCDN.charger;
-    if (name.includes("capinha") || name.includes("capa") || name.includes("case")) return appleCDN.case;
-    if (name.includes("fone") || name.includes("áudio")) return appleCDN.airpods;
+    if (name.includes("carregador") || name.includes("wireless") || name.includes("magsafe") || name.includes("power bank")) return appleCDN.charger;
+    if (name.includes("capinha") || name.includes("capa") || name.includes("case") || name.includes("película")) return appleCDN.case;
+    if (name.includes("pulseira") || name.includes("watch")) return appleCDN.watch;
+    if (name.includes("ipad") || name.includes("caneta")) return appleCDN.ipad;
+    if (name.includes("macbook")) return appleCDN.macbook;
     return appleCDN.cable; // Default accessory
   }
   
