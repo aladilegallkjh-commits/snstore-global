@@ -161,36 +161,27 @@ button:active { transform: scale(.98); }
 .color-chips i{background-color:transparent!important;background-image:var(--swatch-bg)!important;border-color:var(--swatch-border)!important}
 
 /* =========================================================================
-   HERO BANNER SHOWCASE (SN STORE GLOBAL MASTER ARTWORK)
+   HERO BANNER SHOWCASE (SN STORE GLOBAL MASTER ARTWORK - SEAMLESS TRANSPARENT)
    ========================================================================= */
 .hero-banner-section {
   position: relative;
-  max-width: 1240px;
-  margin: 10px auto 0;
-  padding: 0 20px;
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 10px 24px 0;
   box-sizing: border-box;
 }
 
 .hero-banner-wrap {
   position: relative;
-  border-radius: 22px;
-  overflow: hidden;
-  border: 1px solid rgba(56, 189, 248, 0.4);
-  background: #020712;
-  box-shadow: 
-    0 24px 80px rgba(0, 0, 0, 0.75),
-    0 0 60px rgba(6, 182, 212, 0.22),
-    inset 0 0 40px rgba(14, 165, 233, 0.08);
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  overflow: visible;
 }
 
 .hero-banner-ambient-glow {
-  position: absolute;
-  inset: 0;
-  background: 
-    radial-gradient(circle at 75% 40%, rgba(6, 182, 212, 0.22) 0%, transparent 55%),
-    radial-gradient(circle at 20% 50%, rgba(14, 165, 233, 0.15) 0%, transparent 50%);
-  pointer-events: none;
-  z-index: 1;
+  display: none;
 }
 
 .hero-banner-stage {
@@ -203,20 +194,24 @@ button:active { transform: scale(.98); }
   width: 100%;
   height: auto;
   display: block;
-  object-fit: cover;
+  object-fit: contain;
+  background: transparent !important;
+  mask-image: radial-gradient(ellipse 96% 92% at 50% 50%, black 72%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse 96% 92% at 50% 50%, black 72%, transparent 100%);
   filter: contrast(1.02) saturate(1.04);
 }
 
-/* Action Bar below the artwork: zero overlap with the original graphic */
+/* Action Bar below the artwork: clean and transparent without container box */
 .hero-banner-bar {
   position: relative;
   z-index: 5;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 18px 28px;
-  background: linear-gradient(90deg, rgba(3, 14, 25, 0.95) 0%, rgba(2, 7, 18, 0.95) 100%);
-  border-top: 1px solid rgba(56, 189, 248, 0.22);
+  padding: 18px 8px 8px;
+  background: transparent !important;
+  border: none !important;
+  border-top: none !important;
 }
 
 .hero-banner-actions {
@@ -317,12 +312,13 @@ button:active { transform: scale(.98); }
     padding: 12px 14px 0;
   }
   .hero-banner-wrap {
-    border-radius: 18px;
+    border-radius: 0 !important;
   }
   .hero-banner-bar {
     flex-direction: column;
-    padding: 16px 14px;
+    padding: 14px 0 0;
     gap: 14px;
+    background: transparent !important;
   }
   .hero-banner-actions {
     width: 100%;
