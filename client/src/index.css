@@ -161,123 +161,219 @@ button:active { transform: scale(.98); }
 .color-chips i{background-color:transparent!important;background-image:var(--swatch-bg)!important;border-color:var(--swatch-border)!important}
 
 /* =========================================================================
-   HERO BANNER SHOWCASE (SN STORE GLOBAL MASTER ARTWORK - SEAMLESS TRANSPARENT)
+   TRANSPARENT CYBER HERO (SN STORE GLOBAL MASTER ARTWORK)
    ========================================================================= */
-.hero-banner-section {
+.hero-transparent-section {
   position: relative;
-  max-width: 1320px;
+  overflow: hidden;
+  background: transparent !important;
+  padding: 24px 0 10px;
+  isolation: isolate;
+}
+
+.hero-ambient-nebula {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: 
+    radial-gradient(circle at 75% 35%, rgba(6, 182, 212, 0.2) 0%, transparent 58%),
+    radial-gradient(circle at 20% 50%, rgba(14, 165, 233, 0.12) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.hero-transparent-grid {
+  max-width: 1360px;
   margin: 0 auto;
-  padding: 10px 24px 0;
-  box-sizing: border-box;
-}
-
-.hero-banner-wrap {
-  position: relative;
-  background: transparent !important;
-  border: none !important;
-  border-radius: 0 !important;
-  box-shadow: none !important;
-  overflow: visible;
-}
-
-.hero-banner-ambient-glow {
-  display: none;
-}
-
-.hero-banner-stage {
-  position: relative;
-  width: 100%;
-  line-height: 0;
-}
-
-.hero-banner-img {
-  width: 100%;
-  height: auto;
-  display: block;
-  object-fit: contain;
-  background: transparent !important;
-  mask-image: radial-gradient(ellipse 96% 92% at 50% 50%, black 72%, transparent 100%);
-  -webkit-mask-image: radial-gradient(ellipse 96% 92% at 50% 50%, black 72%, transparent 100%);
-  filter: contrast(1.02) saturate(1.04);
-}
-
-/* Action Bar below the artwork: clean and transparent without container box */
-.hero-banner-bar {
-  position: relative;
-  z-index: 5;
-  display: flex;
+  padding: 10px 32px 20px;
+  display: grid;
+  grid-template-columns: 1.08fr 1fr;
   align-items: center;
-  justify-content: space-between;
-  padding: 18px 8px 8px;
-  background: transparent !important;
-  border: none !important;
-  border-top: none !important;
+  gap: 36px;
 }
 
-.hero-banner-actions {
+.hero-copy-col {
+  position: relative;
+  z-index: 2;
+}
+
+.hud-tag-dot {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #38bdf8;
+  box-shadow: 0 0 10px #38bdf8, 0 0 20px #0284c7;
+  margin-right: 8px;
+  vertical-align: middle;
+  animation: hudPulse 2.5s infinite ease-in-out;
+}
+
+@keyframes hudPulse {
+  0%, 100% { opacity: 1; transform: scale(1); box-shadow: 0 0 10px #38bdf8, 0 0 20px #0284c7; }
+  50% { opacity: 0.5; transform: scale(0.85); box-shadow: 0 0 4px #38bdf8; }
+}
+
+/* Glowing HUD Bracket Box */
+.hero-hud-frame {
+  position: relative;
+  display: inline-block;
+  margin: 14px 0 16px;
+  padding: 18px 28px 16px 24px;
+  background: linear-gradient(135deg, rgba(8, 28, 48, 0.35) 0%, rgba(2, 8, 18, 0.15) 100%);
+  border: 1px solid rgba(56, 189, 248, 0.4);
+  border-radius: 16px;
+  box-shadow: 
+    0 0 35px rgba(14, 165, 233, 0.14),
+    inset 0 0 25px rgba(56, 189, 248, 0.08);
+  backdrop-filter: blur(10px);
+}
+
+.hud-bracket {
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  border-color: #38bdf8;
+  border-style: solid;
+  pointer-events: none;
+  filter: drop-shadow(0 0 8px rgba(56, 189, 248, 0.95));
+}
+
+.hud-bracket-tl {
+  top: -1px;
+  left: -1px;
+  border-width: 3px 0 0 3px;
+  border-top-left-radius: 16px;
+}
+
+.hud-bracket-tr {
+  top: -1px;
+  right: -1px;
+  border-width: 3px 3px 0 0;
+  border-top-right-radius: 16px;
+}
+
+.hud-bracket-bl {
+  bottom: -1px;
+  left: -1px;
+  border-width: 0 0 3px 3px;
+  border-bottom-left-radius: 16px;
+}
+
+.hud-bracket-br {
+  bottom: -1px;
+  right: -1px;
+  border-width: 0 3px 3px 0;
+  border-bottom-right-radius: 16px;
+}
+
+.hud-tech-notch {
+  position: absolute;
+  width: 28px;
+  height: 3px;
+  background: #38bdf8;
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.9);
+  pointer-events: none;
+}
+
+.hud-tech-notch.top {
+  top: -2px;
+  left: 32%;
+}
+
+.hud-tech-notch.bottom {
+  bottom: -2px;
+  right: 28%;
+}
+
+.hud-scanner-line {
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(56, 189, 248, 0.85), transparent);
+  box-shadow: 0 0 12px rgba(56, 189, 248, 0.95);
+  opacity: 0.6;
+  pointer-events: none;
+  animation: hudScan 6s ease-in-out infinite alternate;
+}
+
+@keyframes hudScan {
+  0% { top: 12px; opacity: 0; }
+  15% { opacity: 0.75; }
+  85% { opacity: 0.75; }
+  100% { top: calc(100% - 12px); opacity: 0; }
+}
+
+.hero-hud-frame h1 {
+  margin: 0 !important;
+  font-size: clamp(32px, 3.6vw, 54px) !important;
+  font-weight: 800 !important;
+  line-height: 1.06 !important;
+  letter-spacing: -0.045em !important;
+  color: #ffffff !important;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.8);
+}
+
+.hud-glow-text {
+  display: inline-block;
+  background: linear-gradient(135deg, #ffffff 0%, #67e8f9 35%, #38bdf8 70%, #0284c7 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  filter: drop-shadow(0 0 22px rgba(56, 189, 248, 0.8));
+}
+
+.hero-subtitle {
+  max-width: 480px;
+  color: #94a3b8;
+  font-size: 0.98rem;
+  line-height: 1.65;
+  margin: 0 0 20px;
+}
+
+.hero-actions {
   display: flex;
   align-items: center;
   gap: 16px;
+  flex-wrap: wrap;
 }
 
-.hero-banner-badges {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  color: #7dd3fc;
-  font-size: 0.82rem;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-}
-
-.hero-banner-badges span {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  color: #94a3b8;
-}
-
-.hero-banner-badges span:hover {
-  color: #38bdf8;
-}
-
-.hero-banner-btn-primary {
+.hero-btn-primary {
   display: inline-flex !important;
   align-items: center !important;
   gap: 8px !important;
   background: linear-gradient(135deg, #00f0ff 0%, #0284c7 100%) !important;
   color: #03131f !important;
   font-weight: 800 !important;
-  font-size: 0.92rem !important;
+  font-size: 0.95rem !important;
   letter-spacing: 0.02em !important;
-  padding: 13px 26px !important;
+  padding: 14px 28px !important;
   border-radius: 12px !important;
   border: 0 !important;
   box-shadow: 
-    0 0 28px rgba(0, 240, 255, 0.55),
+    0 0 28px rgba(0, 240, 255, 0.5),
     0 8px 24px rgba(0, 0, 0, 0.4) !important;
   cursor: pointer !important;
   transition: all 0.22s ease !important;
 }
 
-.hero-banner-btn-primary:hover {
+.hero-btn-primary:hover {
   transform: translateY(-2px) scale(1.02);
   box-shadow: 
-    0 0 38px rgba(0, 240, 255, 0.8),
+    0 0 38px rgba(0, 240, 255, 0.75),
     0 12px 28px rgba(0, 0, 0, 0.55) !important;
   filter: brightness(1.08);
 }
 
-.hero-banner-btn-secondary {
+.hero-btn-secondary {
   display: inline-flex !important;
   align-items: center !important;
   gap: 8px !important;
-  background: rgba(3, 14, 25, 0.76) !important;
+  background: rgba(3, 14, 25, 0.72) !important;
   border: 1px solid rgba(56, 189, 248, 0.65) !important;
   color: #e0f2fe !important;
   font-weight: 700 !important;
-  font-size: 0.92rem !important;
-  padding: 12px 22px !important;
+  font-size: 0.95rem !important;
+  padding: 13px 24px !important;
   border-radius: 12px !important;
   text-decoration: none !important;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3) !important;
@@ -286,56 +382,102 @@ button:active { transform: scale(.98); }
   transition: all 0.22s ease !important;
 }
 
-.hero-banner-btn-secondary:hover {
+.hero-btn-secondary:hover {
   border-color: #38bdf8 !important;
-  background: rgba(14, 165, 233, 0.22) !important;
-  box-shadow: 0 0 24px rgba(56, 189, 248, 0.45) !important;
+  background: rgba(14, 165, 233, 0.2) !important;
+  box-shadow: 0 0 24px rgba(56, 189, 248, 0.4) !important;
   color: #ffffff !important;
   transform: translateY(-2px);
 }
 
-/* Accessibility helper */
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
+.hero-checks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 32px;
+  color: #a7acb5;
+  font-size: 0.82rem;
+  border-top: 1px solid rgba(159, 203, 238, 0.2);
+  padding-top: 20px;
 }
 
-@media (max-width: 900px) {
-  .hero-banner-section {
-    padding: 12px 14px 0;
+.hero-checks span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #cbd5e1;
+}
+
+.hero-checks svg {
+  color: #38bdf8;
+}
+
+/* Right Column: Floating Apple Ecosystem Artwork with Zero Box */
+.hero-art-col {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.hero-art-glow-backdrop {
+  position: absolute;
+  width: 480px;
+  height: 480px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(6, 182, 212, 0.26) 0%, rgba(14, 165, 233, 0.08) 55%, transparent 70%);
+  filter: blur(50px);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.hero-floating-device-img {
+  position: relative !important;
+  width: 100% !important;
+  max-width: 620px !important;
+  height: auto !important;
+  display: block !important;
+  object-fit: contain !important;
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  filter: 
+    drop-shadow(0 20px 45px rgba(0, 0, 0, 0.55)) 
+    drop-shadow(0 0 35px rgba(6, 182, 212, 0.32)) !important;
+  animation: heroFloat 6s ease-in-out infinite alternate;
+  z-index: 2;
+}
+
+@keyframes heroFloat {
+  0% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-8px) rotate(0.3deg); }
+  100% { transform: translateY(4px) rotate(-0.2deg); }
+}
+
+@media (max-width: 960px) {
+  .hero-transparent-grid {
+    grid-template-columns: 1fr;
+    padding: 10px 20px 20px;
+    gap: 28px;
   }
-  .hero-banner-wrap {
-    border-radius: 0 !important;
-  }
-  .hero-banner-bar {
-    flex-direction: column;
-    padding: 14px 0 0;
-    gap: 14px;
-    background: transparent !important;
-  }
-  .hero-banner-actions {
+  .hero-hud-frame {
     width: 100%;
+    padding: 20px 20px 18px;
+  }
+  .hero-actions {
     flex-direction: column;
-    gap: 10px;
   }
-  .hero-banner-badges {
-    flex-wrap: wrap;
-    justify-content: center;
-    font-size: 0.76rem;
-    gap: 12px;
-  }
-  .hero-banner-btn-primary,
-  .hero-banner-btn-secondary {
+  .hero-btn-primary,
+  .hero-btn-secondary {
     width: 100%;
     justify-content: center;
-    padding: 12px 20px !important;
-    font-size: 0.9rem !important;
+  }
+  .hero-floating-device-img {
+    max-width: 440px !important;
+    margin: 0 auto;
   }
 }
